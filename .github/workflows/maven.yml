@@ -30,6 +30,8 @@ jobs:
     - name: Build with Maven
       run: mvn clean package -DskipTests
     - name: build path
-      run: echo ${{ $GITHUB_WORKSPACE }} 
+    - run: |
+          echo ${{ github.workspace }}
+          echo $GITHUB_WORKSPACE 
 
 
