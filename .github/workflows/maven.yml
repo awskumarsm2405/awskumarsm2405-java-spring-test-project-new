@@ -98,7 +98,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-region: us-east-2
-          role-to-assume: ${{ vars.AWS_ROLE_TO_ASSUME }}
+          role-to-assume: arn:aws:iam::867344445740:role/my-github-actions-role
           role-session-name: githubactionsession
       - name: Deploy to AWS CodeDeploy
         run: |
