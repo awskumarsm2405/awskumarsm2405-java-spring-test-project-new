@@ -3,6 +3,7 @@ package com.skm.account.controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -79,6 +80,13 @@ public class AccountController {
        public CustomerDto getCustomerByMobile(@Valid @RequestParam @Pattern(regexp="(^$|[0-9]{10})", message="it should be 10 digit only") String mobilenumber){
     	   return accountService.findByMobile(mobilenumber);  
     	   //return customerDto;
+       }
+
+       @PutMapping("/customer/{mobilenumber}")
+       public String updateCustomerByMobile(@Valid @PathVariable @Pattern(regexp="(^$|[0-9]{10})", message="it should be 10 digit only") String mobilenumber, @RequestBody CustomerDto customerDto){
+    	   //return accountService.findByMobile(mobilenumber);  
+    	   //return customerDto;
+           return "Customer Update";
        }
        
        
